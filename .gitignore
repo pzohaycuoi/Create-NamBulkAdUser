@@ -1,0 +1,16 @@
+# Ignore all logs file
+*.log
+
+# Ignore all xlxs and csv file
+*.csv
+*.xlsx
+
+# Igore picture file
+*.png
+*.jpeg
+
+# Ignore rar and zip file
+*.rar
+*.zip
+
+*.json
