@@ -2,9 +2,11 @@ function Import-LocationData {
   
   # import location informartion csv file
   param (
+
     # path to location csv file
     [Parameter(Mandatory)]
     [string]$FilePath
+    
   )
 
   # Check if path exist
