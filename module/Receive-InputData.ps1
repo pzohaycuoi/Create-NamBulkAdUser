@@ -21,7 +21,17 @@ function Receive-InputData {
     [string]$Location
 
   )
-
   
+  # Put input data into an object, passing this into other module
+  $inputData = @{    
+    FirstName = $FirstName
+    LastName = $LastName
+    Title = $Title
+    Department = $Department
+    Manager = $Department
+    Location = $Location
+  }
+
+  return $inputData
 
 }
