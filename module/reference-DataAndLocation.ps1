@@ -1,4 +1,9 @@
-$PSScriptRoot
-$PSCommandPath
+function Reference-DataAndLocation {
 
-$MyInvocation.MyCommand.Path
+  param (
+      [Parameter(Mandatory)]
+      [System.Object]
+      $DataInput
+  )
+  
+}
