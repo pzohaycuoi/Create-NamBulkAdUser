@@ -1,4 +1,5 @@
 function Import-AdModule {
+  
   param ()
   
   # try importing AD module
@@ -15,7 +16,7 @@ function Import-AdModule {
 
     }
     else {
-
+      
       return $true
 
     } # end if (-not (Get-Module -Name ActiveDirectory))

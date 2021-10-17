@@ -28,11 +28,30 @@ Describe "Loading location csv" {
 
     It "Loading locttion csv" {
 
-        $dataPath = "$($scriptDir)\..\data\location.csv"
+        $locationDataPath = "$($scriptDir)\..\data\location.csv"
 
-        $loadCsvFunc = Import-LocationData -FilePath $dataPath | ConvertTo-Json
-        $loadCsvFile = Import-Csv -path $dataPath | ConvertTo-Json
+        $loadCsvFunc = Import-LocationData -FilePath $locationDataPath | ConvertTo-Json
+        $loadCsvFile = Import-Csv -path $locationDataPath | ConvertTo-Json
         $loadCsvFunc | Should Be $loadCsvFile
+
+    }
+
+}
+
+Describe "Reference test from json" {
+
+    It "Reference test from json" {
+
+        $testCase = Get-Content "$($scriptDir)\..\test\Data\single-user-should-be.json" | ConvertFrom-Json | ConvertTo-Json
+
+        $loadLocationData = Import-LocationData
+
+        $testDataPath = "$($scriptDir)\..\test\Data\single-user.json"
+        $loadTestData = Get-Content -Path $testDataPath | ConvertFrom-Json
+
+        $referenceFinalizedData = Reference-DataAndLocation -InputData $loadTestData -ReferenceData $loadLocationData
+
+        $referenceFinalizedData | ConvertTo-Json | Should Be $testCase
 
     }
 

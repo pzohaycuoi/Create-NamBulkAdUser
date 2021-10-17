@@ -1,5 +1,5 @@
 ﻿$scriptDir = $PSScriptRoot
-Import-Module "$($scriptDir)\Check-AdUserExist.ps1"
+. "$($scriptDir)\Check-AdUserExist.ps1"
 
 function Create-AdUser {
 
