@@ -23,15 +23,17 @@ function Receive-InputData {
   )
   
   # Put input data into an object, passing this into other module
-  $inputData = @{    
+  $inputData = [PsCustomObject]@{  
+
     FirstName = $FirstName
     LastName = $LastName
     Title = $Title
     Department = $Department
     Manager = $Department
     Location = $Location
+
   }
 
   return $inputData
 
-}
+} # end function Receive-InputData

@@ -34,14 +34,14 @@ function Import-LocationData {
     }
     else {
 
-      throw "File type is not CSV"
+      return $false
 
     } # end if ([IO.Path]::GetExtension($FilePath) -eq ".csv")
 
   }
   else {
 
-    throw "File not found"
+    return $false
   
   }  # end if (Test-Path -Path $FilePath)
 

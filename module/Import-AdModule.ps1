@@ -1,5 +1,5 @@
 function Import-AdModule {
-  
+
   param ()
   
   # try importing AD module
@@ -14,17 +14,15 @@ function Import-AdModule {
 
       return $true
 
-    }
-    else {
+    } else {
       
       return $true
 
     } # end if (-not (Get-Module -Name ActiveDirectory))
 
   }
-  catch [System.IO.FileNotFoundException] {
-
-    Write-Output $_.exception
+  catch {
+    
     throw $_.exception
 
   } # end try
