@@ -61,7 +61,8 @@ foreach ($row in $importCsv) {
 
     $FirstName = $row.FIRST_NAME  
 
-  } else {
+  }
+  else {
     
     $FirstName = $row.PREFERED_NAME
 
@@ -80,25 +81,25 @@ foreach ($row in $importCsv) {
     -Manager $Manager `
     -Location $Location
 
-    $adUserInfo = [PSCustomObject]@{
-      FirstName = $newAdUser.FirstName
-      LastName = $newAdUser.LastName
-      Name = $newAdUser.Name
-      SamAccountName = $newAdUser.SamAccountName
-      Title = $newAdUser.Title
-      Department = $newAdUser.Department
-      Manager = $newAdUser.Manager
-      StreetAddress = $newAdUser.StreetAddress
-      City = $newAdUser.City
-      State = $newAdUser.State
-      PostalCode = $newAdUser.PostalCode
-      Country = $newAdUser.Country
-      OuPath = $newAdUser.OuPath
-      Result = $newAdUser.Result
-    }
+  $adUserInfo = [PSCustomObject]@{
+    FirstName      = $newAdUser.FirstName
+    LastName       = $newAdUser.LastName
+    Name           = $newAdUser.Name
+    SamAccountName = $newAdUser.SamAccountName
+    Title          = $newAdUser.Title
+    Department     = $newAdUser.Department
+    Manager        = $newAdUser.Manager
+    StreetAddress  = $newAdUser.StreetAddress
+    City           = $newAdUser.City
+    State          = $newAdUser.State
+    PostalCode     = $newAdUser.PostalCode
+    Country        = $newAdUser.Country
+    OuPath         = $newAdUser.OuPath
+    Result         = $newAdUser.Result
+  }
 
-    $adUserInfo | Export-Csv -Path $resultFile.FullName -NoTypeInformation -Append -Force
-    $adUserInfo
+  $adUserInfo | Export-Csv -Path $resultFile.FullName -NoTypeInformation -Append -Force
+  $adUserInfo
 
 } # end foreach ($row in $importCsv)
 

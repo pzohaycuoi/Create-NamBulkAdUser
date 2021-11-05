@@ -56,7 +56,7 @@ function Create-AdUser {
 
   } # end if ($true -eq (Check-AdUserExist -SamAccountName $samAccountName))
 
-  if ($null -eq (Get-ADUser -Filter {name -like $Name} -Properties name)) {
+  if ($null -eq (Get-ADUser -Filter { name -like $Name } -Properties name)) {
 
     New-Log -Level "INFO" -Message "User with Name $($Name) is not exist yet, creating"
 
@@ -73,7 +73,7 @@ function Create-AdUser {
       $countName++
       $newName = "$($Name)$($countName)"
 
-    } until ($null -eq (Get-ADUser -Filter {name -like $newName} -Properties name))
+    } until ($null -eq (Get-ADUser -Filter { name -like $newName } -Properties name))
 
     $Name = $newName
 
@@ -82,19 +82,19 @@ function Create-AdUser {
   } # end if ($true -eq (Check-AdUserExist -SamAccountName $samAccountName))
 
   $adUserInfo = [PSCustomObject]@{
-    FirstName = $FirstName
-    LastName = $LastName
-    Name = $Name
+    FirstName      = $FirstName
+    LastName       = $LastName
+    Name           = $Name
     SamAccountName = $SamAccountName
-    Title = $Title
-    Department = $Department
-    Manager = $Manager
-    StreetAddress = $StreetAddress
-    City = $City
-    State = $State
-    PostalCode = $PostalCode
-    Country = $Country
-    OuPath = $OuPath
+    Title          = $Title
+    Department     = $Department
+    Manager        = $Manager
+    StreetAddress  = $StreetAddress
+    City           = $City
+    State          = $State
+    PostalCode     = $PostalCode
+    Country        = $Country
+    OuPath         = $OuPath
   }
 
   # check if manager's exist
@@ -122,7 +122,7 @@ function Create-AdUser {
         -ChangePasswordAtLogon $true `
         -ErrorAction Stop  
 
-        Set-ADUser -Identity $samAccountName `
+      Set-ADUser -Identity $samAccountName `
         -Enabled $true
       
       New-Log -Level "INFO" -Message "User $($samAccountName) is successfully created"
