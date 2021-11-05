@@ -12,13 +12,13 @@ function Check-AdUserExist {
     
     $checkAduserExist = Get-ADUser -Identity $SamAccountName -ErrorAction Stop
     
-    if (-not $checkAduserExist) {
+    if (-not ($null -eq $checkAduserExist)) {
 
-      return $false
+      return $true
 
     } else {
 
-      return $true
+      return $false
       
     } # end if (-not $checkAduserExist)
 

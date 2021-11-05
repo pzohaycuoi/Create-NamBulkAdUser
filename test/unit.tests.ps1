@@ -56,18 +56,3 @@ Describe "Reference test from json" {
     }
 
 }
-
-Describe "testing combination of module expect Create-AdUser" {
-
-    It "testing combination of module expect Create-AdUser" {
-
-        $testCase = Get-Content "$($scriptDir)\..\test\Data\single-user-should-be.json" | ConvertFrom-Json | ConvertTo-Json
-
-        # run the script
-        "$($scriptDir)\..\main.ps1 -FirstName $($testCase.FirstName)"
-
-
-
-    }
-
-}

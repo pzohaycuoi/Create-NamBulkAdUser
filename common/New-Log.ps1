@@ -16,7 +16,7 @@ function New-Log {
   $getExecTime = Get-Date -Format ddMMyyyy-hhmmss
   $messageLog = "$($getExecTime) - [$($Level)] - $($Message)"
   
-  Write-Output $messageLog
+  Write-Host $messageLog
 
   return $messageLog
   

@@ -1,3 +1,6 @@
+$scriptDir = $PSScriptRoot
+. "$($scriptDir)\..\common\New-Log.ps1"
+
 function Import-AdModule {
 
   param ()
@@ -8,14 +11,20 @@ function Import-AdModule {
 
     if (-not (Get-Module -Name ActiveDirectory)) {
 
+      New-Log -Level "INFO" -Message "Active Directory module is not loaded, try importing"
+
       # try to import the Module
-      Import-Module -name ActiveDirectory -ErrorAction stop
+      Import-Module -name ActiveDirectory -ErrorAction stop -WarningAction SilentlyContinue
       $null = Get-Module -Name ActiveDirectory -ErrorAction stop  # Query if the AD PSdrive is loaded
+
+      New-Log -Level "INFO" -Message "Import Active Directory module success"
 
       return $true
 
     } else {
       
+      New-Log -Level "INFO" -Message "Active Directory module is already loaded"
+
       return $true
 
     } # end if (-not (Get-Module -Name ActiveDirectory))
@@ -23,7 +32,9 @@ function Import-AdModule {
   }
   catch {
     
-    throw $_.exception
+    New-Log -Level "ERROR" -Message "Import Active Directory module failed, aborting"
+
+    return $false
 
   } # end try
 

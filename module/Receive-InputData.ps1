@@ -1,3 +1,6 @@
+$scriptDir = $PSScriptRoot
+. "$($scriptDir)\..\common\New-Log.ps1"
+
 function Receive-InputData {
 
   param (
@@ -11,7 +14,7 @@ function Receive-InputData {
     [Parameter(Mandatory)]
     [string]$Title,
 
-    [Parameter(Mandatory)]
+    [AllowEmptyString()]
     [string]$Department,
 
     [Parameter(Mandatory)]
@@ -21,6 +24,8 @@ function Receive-InputData {
     [string]$Location
 
   )
+
+  New-Log -Level "INFO" -Message "Convert input to Object"
   
   # Put input data into an object, passing this into other module
   $inputData = [PsCustomObject]@{  
@@ -29,7 +34,7 @@ function Receive-InputData {
     LastName = $LastName
     Title = $Title
     Department = $Department
-    Manager = $Department
+    Manager = $Manager
     Location = $Location
 
   }

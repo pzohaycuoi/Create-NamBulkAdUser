@@ -1,4 +1,6 @@
 $scriptDir = $PSScriptRoot
+. "$($scriptDir)\..\common\New-Log.ps1"
+
 $defaultDataPath = "$($scriptDir)\..\Data\Location.csv"
 
 function Import-LocationData {
@@ -12,6 +14,8 @@ function Import-LocationData {
     
   )
 
+  New-Log -Level "INFO" -Message "Checking if path to file exist"
+
   # Check if path exist
   if (Test-Path -Path $FilePath) {
 
@@ -22,17 +26,24 @@ function Import-LocationData {
       try {
 
         $importCsv = Import-Csv -path $FilePath -ErrorAction Stop
+
+        New-Log -Level "INFO" -Message "Import Location Csv file success"
+
         Return $importCsv
 
       }
       catch {
 
-        throw $_.exception
+        New-Log -Level "ERROR" -Message $_.Exception
+
+        Return $false
 
       } # end try
 
     }
     else {
+
+      New-Log -Level "ERROR" -Message "File type is not csv, aborting"
 
       return $false
 
@@ -40,6 +51,8 @@ function Import-LocationData {
 
   }
   else {
+
+    New-Log -Level "ERROR" -Message "Path to file not exist, aborting"
 
     return $false
   
