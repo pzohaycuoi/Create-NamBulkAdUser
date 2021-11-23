@@ -95,6 +95,7 @@ foreach ($row in $importCsv) {
     PostalCode     = $newAdUser.PostalCode
     Country        = $newAdUser.Country
     OuPath         = $newAdUser.OuPath
+    Password       = $newAdUser.Password
     Result         = $newAdUser.Result
   }
 

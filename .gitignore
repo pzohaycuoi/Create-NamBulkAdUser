@@ -13,6 +13,6 @@
 *.rar
 *.zip
 
+# ignore data
 *.json
-
 *.txt
