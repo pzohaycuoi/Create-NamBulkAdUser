@@ -1,0 +1,52 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20211125084251
+Username: <domain\user>
+RunAs User: <domain\user>
+Configuration Name: 
+Machine: <ComputerName> (Microsoft Windows NT 10.0.17763.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 3488
+PSVersion: 5.1.17763.1971
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.17763.1971
+BuildVersion: 10.0.17763.1971
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is <location>\Create-NamBulkAdUser\log\log-25112021-084251.txt
+25112021-084251 - [INFO] - Import Input Csv file success
+25112021-084251 - [INFO] - Import Input Csv file success
+25112021-084251 - [INFO] - Active Directory module is already loaded
+25112021-084251 - [INFO] - Checking if path to file exist
+25112021-084251 - [INFO] - Import Location Csv file success
+25112021-084251 - [INFO] - Convert input to Object
+25112021-084251 - [INFO] - Getting information based on input data
+25112021-084251 - [INFO] - Completed get information based on input data
+25112021-084251 - [WARN] - User with SamAccountName <SamAccountName> is exist, finding new samAccountName
+PS>TerminatingError(Get-ADUser): "Cannot find an object with identity: '<SamAccountName>1' under: 'DC=domain,DC=com'."
+25112021-084251 - [INFO] - User with samAccountName <SamAccountName>1 is not exist yet, checking Name
+25112021-084251 - [WARN] - User with Name <FistName>, <LastName> is exist, finding new Name
+25112021-084251 - [INFO] - User with Name <FistName>, <LastName>1 is not exist yet, creating
+25112021-084251 - [INFO] - User <SamAccountName>1 is successfully created
+25112021-084251 - [INFO] - User <SamAccountName>1, full name: <FistName>, <LastName>1
+25112021-084251 - [INFO] - User <SamAccountName>1, display name: <FistName>, <LastName>1
+25112021-084251 - [INFO] - User <SamAccountName>1, Given name: <FistName>
+25112021-084251 - [INFO] - User <SamAccountName>1, Sur name: <LastName>
+25112021-084251 - [INFO] - User <SamAccountName>1, SamAccountName: <SamAccountName>1
+25112021-084251 - [INFO] - User <SamAccountName>1, UserPrincipalName: <SamAccountName>1
+25112021-084251 - [INFO] - User <SamAccountName>1, Title: <Title>
+25112021-084251 - [INFO] - User <SamAccountName>1, Department: <Department>
+25112021-084251 - [INFO] - User <SamAccountName>1, Manager: <Manager>
+25112021-084251 - [INFO] - User <SamAccountName>1, StreetAddress: <StreetAddress>
+25112021-084251 - [INFO] - User <SamAccountName>1, City: <City>
+25112021-084251 - [INFO] - User <SamAccountName>1, State: <State>
+25112021-084251 - [INFO] - User <SamAccountName>1, PostalCode: <PostalCode>
+25112021-084251 - [INFO] - User <SamAccountName>1, Country: <Country>
+25112021-084251 - [INFO] - User <SamAccountName>1, Path: OU=Users,DC=domain,DC=com
+**********************
+Windows PowerShell transcript end
+End time: 20211125084251
+**********************
