@@ -1,2 +1,2 @@
-﻿FIRST_NAME,LAST_NAME,PREFERRED_NAME,JOB_NAME,location code,NEW_SUPERVISOR_EMP_NUM,Supervisor name,Supervisor AD Account
-firstname,lastname,,title,location,ELR000130,managerName,managerSamAccountName
+﻿FIRST_NAME,LAST_NAME,PREFERRED_NAME,JOB_NAME,location code,Supervisor name,Supervisor AD Account
+firstname,lastname,,title,location,managerName,managerSamAccountName
