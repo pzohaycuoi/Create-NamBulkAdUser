@@ -1,7 +1,7 @@
 ﻿$scriptDir = $PSScriptRoot
 . "$($scriptDir)\Check-AdUserExist.ps1"
 . "$($scriptDir)\..\common\New-Log.ps1"
-. "$($scriptDir)\..\common\New-RandomPassword.ps1"
+. "$($scriptDir)\New-RandomPassword.ps1"
 
 function Create-AdUser {
 
@@ -25,7 +25,8 @@ function Create-AdUser {
   $PostalCode = $InputData.PostalCode
   $Country = $InputData.Country
   $OuPath = $InputData.OuPath
-  $password = New-RandomPassword | ConvertTo-SecureString -AsPlainText -Force
+  $passwordPlainText = New-RandomPassword
+  $password = $passwordPlainText | ConvertTo-SecureString -AsPlainText -Force
 
   # required parameters base on input data for new-aduser command
   $Name = "$($FirstName), $($LastName)"
@@ -96,7 +97,7 @@ function Create-AdUser {
     PostalCode     = $PostalCode
     Country        = $Country
     OuPath         = $OuPath
-    Password       = $password
+    Password       = $passwordPlainText
   }
 
   # check if manager's exist

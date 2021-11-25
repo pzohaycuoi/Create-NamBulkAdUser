@@ -100,7 +100,6 @@ foreach ($row in $importCsv) {
   }
 
   $adUserInfo | Export-Csv -Path $resultFile.FullName -NoTypeInformation -Append -Force
-  $adUserInfo
 
 } # end foreach ($row in $importCsv)
 

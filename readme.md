@@ -9,7 +9,7 @@ Creating bulk AD users from a csv file.
 You can clone this reposistory to your domain controller, place it anywhere expect system related folder and use it as a function.
 
 ### Parameters
-- > FilePath - path to the csv file, accept both absolute path and relative path.
+> - FilePath - path to the csv file, accept both absolute path and relative path.
 
 ## CSV Format
 
