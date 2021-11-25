@@ -1,0 +1,2 @@
+﻿location,streetaddress,city,state,postalcode,country,oupath
+location,streetaddress,city,state,10000,VN,"OU=Users,DC=domain,DC=com"
